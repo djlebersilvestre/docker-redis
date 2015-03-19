@@ -110,7 +110,7 @@ case "$1" in
     echo "Step 3 / $STEPS_NUM"
     install
     echo "Step 4 / $STEPS_NUM"
-    setup $2 $3
+    setup $2 $3 $4
     echo "Step 5 / $STEPS_NUM"
     svscanboot $2
     echo "Finished all steps!"
