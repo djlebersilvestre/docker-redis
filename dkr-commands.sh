@@ -29,13 +29,13 @@ redis_stop() {
 }
 
 redis_password() {
-  docker run -it $DKR_REDIS_IMAGE sh -c 'exec echo $(grep "^requirepass \w\+" /data/redis/redis.conf)'
+  docker run --rm -it $DKR_REDIS_IMAGE sh -c 'exec echo $(grep "^requirepass \w\+" /data/redis/redis.conf)'
 }
 
 redis_client() {
-  docker run -it --link $DKR_REDIS_CONTAINER:$DKR_REDIS_CONTAINER --rm $DKR_REDIS_IMAGE sh -c 'exec redis-cli -h "$REDIS_PORT_6379_TCP_ADDR" -p "$REDIS_PORT_6379_TCP_PORT"'
+  docker run --rm -it --link $DKR_REDIS_CONTAINER:$DKR_REDIS_CONTAINER $DKR_REDIS_IMAGE sh -c 'exec redis-cli -h "$REDIS_PORT_6379_TCP_ADDR" -p "$REDIS_PORT_6379_TCP_PORT"'
 }
 
 redis_console() {
-  docker run -it $DKR_REDIS_IMAGE /bin/bash
+  docker run --rm -it $DKR_REDIS_IMAGE /bin/bash
 }
