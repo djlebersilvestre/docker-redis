@@ -21,7 +21,7 @@ djlebersilvestre/redis      2.8.19              4f7c1d4185ec        2  seconds a
 ```
 Or you can build directly from git:
 ```
-$ docker build -t djlebersilvestre/redis:2.8.19 https://github.com/djlebersilvestre/docker-redis.git
+$ docker build -t djlebersilvestre/redis:2.8.19 https://github.com/djlebersilvestre/docker-redis-cac.git
 ```
 
 2. Start the server:

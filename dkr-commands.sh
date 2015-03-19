@@ -5,6 +5,10 @@ DKR_REDIS_CONTAINER=redis
 REDIS_HOST=127.0.0.1
 REDIS_PORT=6379
 
+redis_build() {
+  docker build -t $DKR_REDIS_IMAGE https://github.com/djlebersilvestre/docker-redis-cac.git
+}
+
 redis_setup() {
   if ! docker ps -a | grep -q " $DKR_REDIS_CONTAINER "; then
     docker run --name $DKR_REDIS_CONTAINER -d -p $REDIS_HOST:$REDIS_PORT:$REDIS_PORT $DKR_REDIS_IMAGE

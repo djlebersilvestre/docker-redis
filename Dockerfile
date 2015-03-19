@@ -23,7 +23,7 @@ RUN /provision-redis.sh packages
 RUN /provision-redis.sh install
 
 # Configure Redis (default data dir and maxmemory at 50Mb)
-RUN /provision-redis.sh setup /data/redis 52428800
+RUN /provision-redis.sh setup /data/redis 52428800 testing
 
 # Directory that stores Redis data
 VOLUME /data/redis
