@@ -5,11 +5,13 @@ set -e
 scripts=${0%/*}/provision-steps
 rm -rf $scripts
 mkdir $scripts
-curl -sSL "https://raw.githubusercontent.com/djlebersilvestre/docker-redis-cac/master/provision-steps/usrgrp.sh"     -o $scripts/usrgrp.sh
-curl -sSL "https://raw.githubusercontent.com/djlebersilvestre/docker-redis-cac/master/provision-steps/packages.sh"   -o $scripts/packages.sh
-curl -sSL "https://raw.githubusercontent.com/djlebersilvestre/docker-redis-cac/master/provision-steps/install.sh"    -o $scripts/install.sh
-curl -sSL "https://raw.githubusercontent.com/djlebersilvestre/docker-redis-cac/master/provision-steps/setup.sh"      -o $scripts/setup.sh
-curl -sSL "https://raw.githubusercontent.com/djlebersilvestre/docker-redis-cac/master/provision-steps/svscanboot.sh" -o $scripts/svscanboot.sh
+
+github="https://raw.githubusercontent.com/djlebersilvestre/docker-redis-debian74/master/provision-steps"
+curl -sSL "$github/usrgrp.sh"     -o $scripts/usrgrp.sh
+curl -sSL "$github/packages.sh"   -o $scripts/packages.sh
+curl -sSL "$github/install.sh"    -o $scripts/install.sh
+curl -sSL "$github/setup.sh"      -o $scripts/setup.sh
+curl -sSL "$github/svscanboot.sh" -o $scripts/svscanboot.sh
 chmod +x -R $scripts
 
 #   Step 1 - usrgrp:
