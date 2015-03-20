@@ -8,29 +8,30 @@
 FROM debian:7.4
 MAINTAINER Daniel Silvestre (djlebersilvestre@github.com)
 
-# Base script - all provisioning funcions
-COPY provision-redis.sh /provision-redis.sh
-RUN chmod +x /provision-redis.sh
-
 # Add redis user and group first to make sure their IDs get assigned
 # consistently, regardless of whatever dependencies get added
-RUN /provision-redis.sh usrgrp
+COPY provision-steps/usrgrp.sh /steps/usrgrp.sh
+RUN /steps/usrgrp.sh
 
 # Install basic packages
-RUN /provision-redis.sh packages
+COPY provision-steps/packages.sh /steps/packages.sh
+RUN /steps/packages.sh
 
 # Install redis 2.8.19
-RUN /provision-redis.sh install
+COPY provision-steps/install.sh /steps/install.sh
+RUN /steps/install.sh
 
 # Configure Redis (default data dir and maxmemory at 50Mb)
-RUN /provision-redis.sh setup /data/redis 52428800 testing
+COPY provision-steps/setup.sh /steps/setup.sh
+RUN /steps/setup.sh /data/redis 52428800 testing
+
+# Setup process monitoring through daemontools
+COPY provision-steps/svscanboot.sh /steps/svscanboot.sh
+RUN /steps/svscanboot.sh /data/redis
 
 # Directory that stores Redis data
 VOLUME /data/redis
 WORKDIR /data/redis
-
-# Setup process monitoring through daemontools
-RUN /provision-redis.sh svscanboot /data/redis
 
 EXPOSE 6379
 CMD [ "svscanboot" ]
