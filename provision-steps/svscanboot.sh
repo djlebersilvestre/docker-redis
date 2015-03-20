@@ -24,5 +24,3 @@ else
   echo -e '\n# Svscanboot will load on startup and launch everyone under /etc/service' >> /etc/inittab
   echo -e 'SV:123456:respawn:/usr/bin/svscanboot' >> /etc/inittab
 fi
-
-exit 0

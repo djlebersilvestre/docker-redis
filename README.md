@@ -33,7 +33,7 @@ $ docker run --name redis -d -p 127.0.0.1:6379:6379 djlebersilvestre/redis:2.8.1
 
 3. Access the server with the client already installed in the image:
 ```
-$ docker run --rm -it --link redis:redis --rm djlebersilvestre/redis:2.8.19 sh -c 'exec redis-cli -h "$REDIS_PORT_6379_TCP_ADDR" -p "$REDIS_PORT_6379_TCP_PORT"'
+$ docker run --rm -it --link redis:redis djlebersilvestre/redis:2.8.19 sh -c 'exec redis-cli -h "$REDIS_PORT_6379_TCP_ADDR" -p "$REDIS_PORT_6379_TCP_PORT"'
 ```
 Or you can setup your application / client to `host=127.0.0.1`,  `port=6379` and `password=...<see below>`
 Getting the password:

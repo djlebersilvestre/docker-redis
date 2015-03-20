@@ -13,5 +13,3 @@ buildDeps='gcc libc6-dev make'; \
   && make -C /usr/src/redis install \
   && rm -r /usr/src/redis \
   && apt-get purge -y --auto-remove $buildDeps
-
-exit 0

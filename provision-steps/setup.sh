@@ -36,5 +36,3 @@ sed -i -e 's/^logfile ""/logfile "\/var\/log\/redis.log"/' $conf
 sed -i -e "s/^databases 16/databases 3/" $conf
 sed -i -e "s/^dir .\//dir \/data\/redis/" $conf
 sed -i -e "s/^# maxmemory <bytes>/maxmemory $maxmem/" $conf
-
-exit 0
