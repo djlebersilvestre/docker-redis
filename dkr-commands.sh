@@ -16,6 +16,7 @@ redis_setup() {
 }
 
 redis_start() {
+  redis_setup
   redis_stop
   docker start $DKR_REDIS_CONTAINER
 }
