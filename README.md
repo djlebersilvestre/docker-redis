@@ -1,4 +1,4 @@
-# docker-redis-cac
+# docker-redis-debian74
 ==================
 
 Dockerfile to build an image of Redis 2.8.19 over a Debian 7.4. The goal is to
@@ -23,7 +23,7 @@ djlebersilvestre/redis      2.8.19              4f7c1d4185ec        2  seconds a
 ```
 Or you can build directly from git:
 ```
-$ docker build -t djlebersilvestre/redis:2.8.19 https://github.com/djlebersilvestre/docker-redis-cac.git
+$ docker build -t djlebersilvestre/redis:2.8.19 https://github.com/djlebersilvestre/docker-redis-debian74.git
 ```
 
 2. Start the server:

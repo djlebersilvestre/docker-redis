@@ -6,7 +6,7 @@ REDIS_HOST=127.0.0.1
 REDIS_PORT=6379
 
 redis_build() {
-  docker build -t $DKR_REDIS_IMAGE https://github.com/djlebersilvestre/docker-redis-cac.git
+  docker build -t $DKR_REDIS_IMAGE https://github.com/djlebersilvestre/docker-redis-debian74.git
 }
 
 redis_setup() {
