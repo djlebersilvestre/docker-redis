@@ -20,6 +20,7 @@ RUN /steps/packages.sh
 # Install redis 2.8.19
 COPY provision-steps/install.sh /steps/install.sh
 RUN /steps/install.sh
+RUN rm -rf /var/lib/apt/lists/*
 
 # Configure Redis (default data dir and maxmemory at 50Mb)
 COPY provision-steps/setup.sh /steps/setup.sh
